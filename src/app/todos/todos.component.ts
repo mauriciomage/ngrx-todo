@@ -21,26 +21,20 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(TodosPageActions.init());
-    this.todos = initialTodos;
   }
 
   addTodo(description: string): void {
     const newTodo = createTodo(description);
     this.store.dispatch(TodosPageActions.addTodo({ todo: newTodo }));
-    this.todos = [...this.todos, newTodo];
   }
 
   removeTodo(todoToRemove: Todo): void {
     this.store.dispatch(TodosPageActions.removeTodo({ todo: todoToRemove }));
-    this.todos = this.todos.filter((todo) => todo.id !== todoToRemove.id);
   }
 
   markAsCompleted(todoToMark: Todo): void {
     this.store.dispatch(
       TodosPageActions.markAsCompleted({ todo: todoToMark, completed: true })
-    );
-    this.todos = this.todos.map((todo) =>
-      todo.id === todoToMark.id ? { ...todo, completed: true } : todo
     );
   }
 
@@ -48,13 +42,9 @@ export class TodosComponent implements OnInit {
     this.store.dispatch(
       TodosPageActions.markAsPending({ todo: todoToMark, completed: false })
     );
-    this.todos = this.todos.map((todo) =>
-      todo.id === todoToMark.id ? { ...todo, completed: false } : todo
-    );
   }
 
   clearCompleted(): void {
     this.store.dispatch(TodosPageActions.clearCompleted({ completed: false }));
-    this.todos = this.todos.filter((todo) => todo.completed === false);
   }
 }
