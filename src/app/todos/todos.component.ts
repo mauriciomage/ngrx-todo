@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { createTodo, initialTodos, Todo } from './model';
+import { createTodo, Todo } from './model';
 import { Store } from '@ngrx/store';
 import { TodosPageActions, TodosSelectors } from './state';
 import { Observable } from 'rxjs';

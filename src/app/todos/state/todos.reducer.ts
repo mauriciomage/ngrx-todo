@@ -7,10 +7,9 @@ export const todosStateFeatureKey = 'todosState';
 // define the model/structure of the state
 export interface TodosState {
   todos: Todo[];
-  completed: boolean;
 }
 
-const initialState: TodosState = { todos: [], completed: false };
+const initialState: TodosState = { todos: [] };
 
 export const todosReducer = createReducer(
   initialState,

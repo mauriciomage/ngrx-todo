@@ -9,7 +9,7 @@ export const todos = createSelector(
   (todoState: TodosState) => todoState.todos
 );
 
-// todos is used from the previous selector to avoid to reload the whole state again
+// todos is used from the previous selector to avoid to reload the whole state
 export const todoHasCompleted = createSelector(todos, (todos) =>
   todos.some((todo: Todo) => todo.completed)
 );
